@@ -1,12 +1,11 @@
-var mainCtrlFn = function($scope, mainFactory) {
+var mainCtrlFn = function($scope, mainFactory) {  // controller function
     $scope.permissionsArr = ['admin', 'moderator', 'user'];
 
     mainFactory.getDataFromServer(function(data) {
         $scope.maindata = data;
-
     });
 
-    $scope.editUserName = function(idNumb, i, name) {
+    $scope.editUserName = function(idNumb, i, name) { // function get data from DOM View
 
         mainFactory.updateUser(JSON.stringify({
             idNumb: idNumb,
@@ -22,7 +21,7 @@ var mainCtrlFn = function($scope, mainFactory) {
         })
     };
 
-    $scope.editUserPermission = function(idNumb, i, perm) {
+    $scope.editUserPermission = function(idNumb, i, perm) { // function get data from DOM View
 
         mainFactory.updateUser(JSON.stringify({
             idNumb: idNumb,
@@ -38,7 +37,7 @@ var mainCtrlFn = function($scope, mainFactory) {
         })
     };
 
-    $scope.deleteUser = function(a, idNumb) {
+    $scope.deleteUser = function(a, idNumb) { // function get data from DOM View
 
         mainFactory.delete(JSON.stringify({
             type: 'delete',
@@ -62,7 +61,7 @@ var mainCtrlFn = function($scope, mainFactory) {
 
 };
 
-var mainFactoryFn = function($http) {
+var mainFactoryFn = function($http) { // factory function
 
     var service = {};
 
@@ -103,9 +102,10 @@ var mainFactoryFn = function($http) {
         })
     };
 
-
     return service
 };
+
+// assembly angular modules:
 
 var app = angular.module('mainApp', []);
 
