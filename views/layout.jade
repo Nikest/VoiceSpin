@@ -1,0 +1,10 @@
+doctype html
+html(ng-app='mainApp')
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='javascripts/angular.min.js')
+    script(src='javascripts/main.js')
+  body(ng-controller='mainCtrl')
+    block content

@@ -1,0 +1,33 @@
+body {
+  padding: 0 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+h2 {
+  font-weight: 100;
+  padding: 15px 0; }
+
+td {
+  width: 40%; }
+
+td:last-child {
+  width: 20%; }
+
+button.big {
+  float: right;
+  border-radius: 100%;
+  width: 70px;
+  height: 70px;
+  display: inline-block;
+  font-size: 2.5em;
+  outline: none; }
+
+thead span {
+  font-weight: bold; }
+
+.buttonBox {
+  text-align: center; }
+  .buttonBox button {
+    margin: 0 2px;
+    display: inline-block; }
+
+/*# sourceMappingURL=style.css.map */

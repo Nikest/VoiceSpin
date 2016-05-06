@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  h2= subtitle
+
+  table.table.table-bordered.table-striped
+    thead
+      tr
+        td(ng-click="test()")
+          span Name
+        td
+          span Permissions
+        td
+          span Actions
+
+    tbody
+      tr(ng-repeat="user in maindata")
+
+        td
+          span(ng-if="!user.editName") {{user.username}}
+
+          .input-group(ng-if="user.editName" ng-init="newName")
+            span.btn.input-group-addon.glyphicon.glyphicon-pencil(ng-click="editUserName(user.idNumb, this.$index, newName)")
+            input.form-control(placeholder="{{user.username}}" value="{{user.username}}" ng-model="newName")
+
+        td
+          span(ng-if="!user.editPermission") {{user.permissions}}
+
+          .btn-group(ng-if="user.editPermission" ng-init="newPerm; index = this.$index")
+            button.btn.btn-default(ng-repeat='perm in permissionsArr' ng-model="newPerm" ng-click="editUserPermission(user.idNumb, index, perm)") {{perm}}
+
+        td
+          .buttonBox
+            button.btn.btn-info.glyphicon.glyphicon-cog(ng-click="user.editName = true; user.editPermission = true")
+            button.btn.btn-danger.glyphicon.glyphicon-remove-circle(ng-click="deleteUser(this.$index, user.idNumb)")
+
+  button.big.btn.btn-success.glyphicon.glyphicon-plus(ng-click="addUser()")
